@@ -1,12 +1,6 @@
 """subarray sum """
-n = int(input())
-index_a = int(input())
-index_b = int(input())
+n, index_a, index_b = list(map(int, input().split()))
+data = list(map(int, input().split()))
 
-data = []
-for i in range(n):
-    numbr = int(input())
-    data.append(numbr)
-
-result = sum(data[index_a:index_b+1])
-print(result)
+sub_array = data[index_a:index_b+1]
+print(sum(sub_array))

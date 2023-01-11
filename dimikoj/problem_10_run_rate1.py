@@ -1,14 +1,11 @@
 T = int(input())
+current_run_rate, required_run_rate = 0.00, 0.00
+
 for i in range(T):
     data = list(map(int, input().split()))
-    opponent_total_run = data[0]
-    win_run = opponent_total_run + 1
-    side_current_run = data[1]
-    left_ball = data[2]
-    current_played_ball = 300 - left_ball
-    current_played_over = current_played_ball / 6
-    current_run_rate = side_current_run / current_played_over
-    left_over = left_ball / 6
-    left_run = win_run - side_current_run
-    side_run_rate = left_run / left_over
-    print("%.2f %.2f" % (current_run_rate, side_run_rate))
+    current_run_rate = data[1] / ((300-data[2])/6)
+    if data[0] < data[1]:
+        required_run_rate = 0
+    else:
+        required_run_rate = (data[0]-data[1]+1) / (data[2]/6)
+    print("%.2f %.2f" % (current_run_rate, required_run_rate))
